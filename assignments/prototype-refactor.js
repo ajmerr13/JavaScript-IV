@@ -37,7 +37,7 @@ Prototype Refactor
 		this.healthPoints = charAttrs.healthPoints	
 		}
 		takeDamage(){
-		return '<object name> took damage';
+		return `${this.name} took damage`;
 		}
      	     }
 
@@ -51,7 +51,7 @@ Prototype Refactor
 		}
 	
 		greet() {
-		return '<object name> offers a greeting in <object language>.'
+		return `${this.name} offers a greeting in ${this.language}.`
 		}
 		}
 

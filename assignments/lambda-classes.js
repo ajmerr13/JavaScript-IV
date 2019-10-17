@@ -121,6 +121,9 @@ debugsCode a method that takes in a student object and a subject and logs out {n
 			grade(student, subStr){
 				return `${student.name} receives a perfect score on ${subStr}`
 			}
+      changeGrade(grade){
+       return Math.floor(Math.random() * 100) + 0;  
+      }
     }
 
 		class Student extends Person{
@@ -128,10 +131,11 @@ debugsCode a method that takes in a student object and a subject and logs out {n
 				super(stuAttrs);
 				this.previousBackground = stuAttrs.previousBackground,
 				this.className = stuAttrs.className,
-				this.favSubjects = stuAttrs.favSubjects
+				this.favSubjects = stuAttrs.favSubjects,
+				this.grade = stuAttrs.grade
       }
 			listsSubjects(){
-        console.log(JSON.stringify(this.favSubjects))
+        console.log(...this.favSubjects)
       }
 			PRAssignment(subject){
 				return `${this.name} has submitted a PR for ${subject}`
@@ -139,7 +143,17 @@ debugsCode a method that takes in a student object and a subject and logs out {n
 			sprintChallenge(subject){	
 				return `${this.name} has begun sprint challenge on ${subject}`
 			}
-    }
+      graduate() {
+        if(this.grade >= 70)
+          {
+            console.log(`Congratulations ${this.name}, You Graduate!`);  
+          }
+        else
+          {
+            console.log(`Sorry ${this.name}, you should have studied harder!`);
+          }
+      }
+     }
 
 		class ProjectManager extends Instructor{
 			constructor(pmAttrs){
@@ -191,6 +205,7 @@ debugsCode a method that takes in a student object and a subject and logs out {n
 	 name: 'Terry',
  	 location: 'Akron',
  	 age: 23,
+   grade: 56,
  	 previousBackground: 'None',
  	 className: 'Web Dev',
  	 favSubjects: ['Cracking Wise', 'Hula Hoopin']
@@ -200,6 +215,7 @@ debugsCode a method that takes in a student object and a subject and logs out {n
 	 name: 'Sherry',
  	 location: 'Jacksonville',
   	 age: 27,
+    grade: 96,
  	 previousBackground: 'Can balance a chair on her nose',
  	 className: 'UXUI',
  	 favSubjects: ['Javascript', 'CSS']
@@ -237,3 +253,6 @@ console.log(terry.sprintChallenge('Javascript'));
 console.log(`${saul.name} is from ${saul.gradClassName} and his favorite instructor was ${saul.favInstructor}`);
 console.log(saul.standUp('Sauls Channel'));
 console.log(paul.debugsCode(sherry, 'Javascript'));
+console.log(tim.changeGrade(sherry.grade));
+console.log(sherry.graduate());
+console.log(terry.graduate());
